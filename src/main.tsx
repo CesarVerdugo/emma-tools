@@ -2,15 +2,15 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider } from '@mui/material/styles';
-import { BrowserRouter } from 'react-router-dom';          // ← asegúrate de importar esto
-import theme from '../theme';
+import { BrowserRouter } from 'react-router-dom';
+import theme from './theme'; // Si es .js y da error, crea el d.ts abajo
 import App from './App.tsx';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <BrowserRouter>               {/* ← envuelve aquí */}
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </ThemeProvider>

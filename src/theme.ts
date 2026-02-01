@@ -4,14 +4,14 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     mode: 'dark',
-    primary: { main: '#E63946' },      // rojo coral para botones principales
-    secondary: { main: '#25D366' },    // verde WhatsApp
-    accent: { main: '#F59E0B' },       // amarillo para precios
+    primary: { main: '#E63946' },
+    secondary: { main: '#25D366' },
+    // accent: { main: '#F59E0B' },  // ← comenta o quita esta línea
     background: { default: '#111827', paper: '#1F2937' },
     text: { primary: '#FFFFFF', secondary: '#D1D5DB' },
   },
   typography: {
-    fontFamily: '"Inter", "Roboto", sans-serif', // Inter es muy legible y moderna en 2026
+    fontFamily: '"Inter", "Roboto", sans-serif',
   },
   components: {
     MuiButton: {
@@ -20,11 +20,6 @@ const theme = createTheme({
           backgroundColor: '#E63946',
           '&:hover': { backgroundColor: '#D62839' },
         },
-      },
-    },
-    MuiCard: {
-      styleOverrides: {
-        root: { backgroundColor: '#1F2937', borderRadius: 12 },
       },
     },
   },

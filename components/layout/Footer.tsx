@@ -1,29 +1,24 @@
 // src/components/layout/Footer.tsx
 import { Box, Typography, Link, IconButton, Container } from '@mui/material';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { styled } from '@mui/material/styles';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp'; // Usamos la variante Outlined para evitar errores de resolución
 
-const FooterContainer = styled(Box)(({ theme }) => ({
-  backgroundColor: '#0F172A', // color oscuro que combina con tu tema
-  color: '#CBD5E1',
-  padding: theme.spacing(4, 0),
-  marginTop: 'auto', // empuja el footer al final si usas flex
-}));
-
-const SocialLink = styled(IconButton)({
-  color: '#CBD5E1',
-  '&:hover': {
-    color: '#25D366', // verde WhatsApp al hover
-  },
-});
+const PHONE_NUMBER = '573XXXXXXXXX'; // ← Cambia por tu número real (sin + ni espacios)
+const whatsappLink = `https://wa.me/${PHONE_NUMBER}`;
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const whatsappNumber = '573247011133'; // ← cambia por tu número real
-  const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   return (
-    <FooterContainer component="footer">
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: '#0F172A', // fondo oscuro que combina con tu tema
+        color: '#CBD5E1',
+        padding: '32px 0',
+        marginTop: 'auto', // empuja al fondo si usas flex en App.tsx
+        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+      }}
+    >
       <Container maxWidth="lg">
         <Box
           sx={{
@@ -32,10 +27,11 @@ export default function Footer() {
             justifyContent: 'space-between',
             alignItems: 'center',
             gap: 3,
+            textAlign: { xs: 'center', md: 'left' },
           }}
         >
-          {/* Izquierda: Marca y eslogan */}
-          <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
+          {/* Izquierda: Marca y copyright */}
+          <Box>
             <Typography variant="h6" fontWeight="bold" color="white" gutterBottom>
               Emma-Tools
             </Typography>
@@ -47,24 +43,32 @@ export default function Footer() {
             </Typography>
           </Box>
 
-          {/* Derecha: Contacto rápido */}
+          {/* Derecha: Contacto rápido por WhatsApp */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Typography variant="body2" sx={{ opacity: 0.9 }}>
               Contáctanos 24/7:
             </Typography>
 
-            <SocialLink
+            <Link
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
+              underline="none"
               aria-label="WhatsApp"
-              size="large"
             >
-              <WhatsAppIcon fontSize="large" />
-            </SocialLink>
+              <IconButton
+                color="inherit"
+                size="large"
+                sx={{
+                  '&:hover': { color: '#25D366' }, // verde WhatsApp al hover
+                }}
+              >
+                <WhatsAppIcon fontSize="large" />
+              </IconButton>
+            </Link>
           </Box>
         </Box>
       </Container>
-    </FooterContainer>
+    </Box>
   );
 }

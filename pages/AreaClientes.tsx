@@ -1,5 +1,6 @@
-// src/pages/AreaClientes.tsx (o como lo tengas)
-import { Container, Typography, Grid } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+
 import DownloadCard from '../components/common/DownloadCard';
 import { downloads } from '../data/products';
 
@@ -13,32 +14,26 @@ export default function AreaClientes() {
         mx: 'auto',
       }}
     >
-      <Typography variant="h4" align="center" gutterBottom sx={{ mb: 6, color: '#F59E0B' }}>
+      <Typography variant="h4" align="center" gutterBottom sx={{ mb: 6 }}>
         Descargas
       </Typography>
 
       <Grid
-        container
+        
         spacing={{ xs: 2, sm: 3, md: 4 }}
         justifyContent="center"
         alignItems="stretch"
       >
         {downloads.map((item) => (
           <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
+          size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
             key={item.name}
           >
             <DownloadCard
               name={item.name}
               link={item.link}
-              idLine={item.idLine}   // si agregas descripción después
-              infoLine={item.infoLine}   // si agregas descripción después
-              desc={item.desc}   // si agregas descripción después
-              image={item.image} // si agregas imagen
+              desc={item.desc} // solo si lo tienes
+              // Quitamos idLine, infoLine, image si no existen
             />
           </Grid>
         ))}
