@@ -5,7 +5,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import ServiceCard from '../components/common/ServiceCard';
 import { rentaTools, activacionesLicencias } from '../data/products';
 
-const PHONE_NUMBER = '573XXXXXXXXX';
+const PHONE_NUMBER = '573247011133';
 
 export default function Home() {
   const destacados = [

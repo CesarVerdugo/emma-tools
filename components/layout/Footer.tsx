@@ -2,7 +2,7 @@
 import { Box, Typography, Link, IconButton, Container } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp'; // Usamos la variante Outlined para evitar errores de resolución
 
-const PHONE_NUMBER = '573XXXXXXXXX'; // ← Cambia por tu número real (sin + ni espacios)
+const PHONE_NUMBER = '573247011133'; // ← Cambia por tu número real (sin + ni espacios)
 const whatsappLink = `https://wa.me/${PHONE_NUMBER}`;
 
 export default function Footer() {
